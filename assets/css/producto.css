@@ -1,0 +1,573 @@
+/* Aplicar a TODOS los contenedores de productos */
+.grid-producto, .grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    align-items: stretch; /* Estira las tarjetas al mismo alto */
+    
+}
+.logo-estigma {
+    display: flex;
+    align-items: center;    /* Centra verticalmente el logo con el texto */
+    justify-content: center; /* Centra todo el grupo en la pantalla */
+    gap: 20px;              /* Espacio entre el logo y el nombre "ESTIGMA" */
+    padding: 20px;
+}
+.logo-estigma:hover {
+    transform: scale(1.05); /* Efecto de relieve sutil al pasar el mouse */
+}
+.logo-top {
+    width: 200px;            /* Ajusta este tamaño según tu imagen original */
+    height: auto;
+    object-fit: contain;
+}
+.header-text h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.header-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    opacity: 0.7;
+}
+.producto {
+    display: flex;
+    flex-direction: column;
+    border: 0.1rem solid #000;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 1rem;
+    flex-direction: column;
+    height: auto; /* Deja que la tarjeta crezca según su contenido */
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    
+}
+
+/* Forzar que TODAS las imágenes midan lo mismo */
+.producto img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Esto las hace perfectamente cuadradas */
+    object-fit: cover;   /* Corta la imagen para llenar el cuadro sin estirarse */
+    border-radius: 12px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0; /* Fondo sutil por si la imagen tiene transparencias */
+    display: block;
+}
+
+.producto h3 {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    min-height: 2.5em; /* Espacio para títulos de 2 líneas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.producto .descripcion {
+    flex-grow: 1; /* Rellena el espacio para que el botón baje */
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.producto .precio {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.producto button {
+    margin-top: auto; /* Empuja el botón al final */
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.producto:hover{
+    transform: translateY(-8px); /* Eleva la tarjeta */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Crea profundidad */
+}
+#accesorios {
+    display: block;
+    clear: both; /* Evita que se encimen si hay elementos flotantes */
+    position: relative;
+    background-color: #f3f3ea; /* Color beige claro */
+    padding: 60px 0;           /* Espacio arriba y abajo del título */
+    margin-top: 40px;          /* Separación del bloque anterior */
+    width: 100%;
+}
+
+#accesorios h2 {
+    text-align: center;
+    margin-bottom: 40px;       /* Espacio entre el título y las fotos */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+#tops {
+    display: block;
+    clear: both; /* Evita que se encimen si hay elementos flotantes */
+    position: relative;
+    background-color: #f3f3ea; /* Color beige claro */
+    padding: 60px 0;           /* Espacio arriba y abajo del título */
+    margin-top: 40px;          /* Separación del bloque anterior */
+    width: 100%;
+}
+
+#tops h2 {
+    text-align: center;
+    margin-bottom: 40px;       /* Espacio entre el título y las fotos */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+#down {
+    display: block;
+    clear: both; /* Evita que se encimen si hay elementos flotantes */
+    position: relative;
+    background-color: #f3f3ea; /* Color beige claro */
+    padding: 60px 0;           /* Espacio arriba y abajo del título */
+    margin-top: 40px;          /* Separación del bloque anterior */
+    width: 100%;
+}
+
+#down h2 {
+    text-align: center;
+    margin-bottom: 40px;       /* Espacio entre el título y las fotos */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    background-color: #f9f9f9;
+}
+header {
+    padding: 3rem 1rem;
+    text-align: center;
+    background-color: #ffffff;
+}
+header h1 {
+    font-size: 3.5rem;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 1rem;
+ }   
+.nav-principal  ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 1rem;
+}
+
+.nav-principal a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.nav-principal a:hover {
+    color: #666666;
+
+}
+/* Panel base oculto abajo */
+#carrito-panel {
+    position: fixed;
+    bottom: -100%; /* Escondido abajo */
+    left: 0;
+    width: 100%;
+    height: 80%; /* Ocupa gran parte de la pantalla */
+    background: white;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.3);
+    transition: bottom 0.5s ease;
+    z-index: 9999;
+    border-radius: 20px 20px 0 0;
+    overflow-y: auto;
+}
+
+/* Clase para mostrarlo */
+#carrito-panel.activo {
+    bottom: 0;
+}
+
+.carrito-contenido {
+    padding: 25px;
+    position: relative;
+}
+
+#cerrar-carrito {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: #eee;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Estilos de validación en rojo */
+.campo input.invalido {
+    border: 2px solid #ff4d4d;
+}
+
+.error-text {
+    color: #ff4d4d;
+    font-size: 12px;
+    display: none;
+}
+
+.campo input.invalido + .error-text {
+    display: block;
+}
+
+.btn-finalizar {
+    width: 100%;
+    background: black;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.btn-agregar:hover{
+    transform: translateY(-8px); /* Eleva la tarjeta */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Crea profundidad */
+}
+.opciones-pago {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.radio-pago {
+    border: 2px solid #eee;
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.radio-pago:has(input:checked) {
+    border-color: #000;
+    background-color: #f8f8f8;
+}
+
+.fila-input {
+    justify-content: center; /* Centra la fila de tarjeta */
+    width: 90%;
+    max-width: 400px;
+    margin: 10px auto;
+}
+
+.fila-input input {
+    width: 48%; /* Divide el espacio entre los dos */
+    text-align: center;
+}
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    display: none; /* Escondido por defecto */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.icon-check {
+    font-size: 50px;
+    color: #27ae60;
+    margin-bottom: 10px;
+}
+
+#btn-cerrar-modal {
+    margin-top: 20px;
+    padding: 10px 30px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.total-compra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    background: #000;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#precio-total {
+    color: #fff; /* Cambiamos a blanco porque el fondo es negro */
+    font-family: 'Courier New', Courier, monospace;
+}
+#carrito-flotante {
+    position: fixed;
+    bottom: 60px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    background-color: #000; /* Negro para combinar con Estigma */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 44px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 900; /* Por debajo del panel pero encima de los productos */
+    transition: transform 0.3s ease;
+}
+
+#carrito-flotante:hover {
+    transform: scale(1.1);
+}
+
+#contador-flotante {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ff4d4d; /* Rojo para que resalte */
+    color: white;
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+/* Contenedor de cada campo (Nombre, Dirección, etc.) */
+.campo {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido internamente */
+}
+
+.campo label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    width: 90%; /* Alinea el texto con el ancho del input */
+    max-width: 400px;
+    text-align: left;
+    font-size: 14px;
+}
+
+/* Diseño de los cuadros de texto (Inputs) */
+.campo input {
+    width: 90%;
+    max-width: 400px;
+    padding: 12px 15px;
+    border: 1px solid #ddd; /* El bordesito sutil */
+    border-radius: 12px;    /* Bordes redondeados */
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+    background-color: #f9f9f9;
+}
+
+/* Efecto al hacer clic en el campo */
+.campo input:focus {
+    border-color: #000;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+#form-compra {
+    max-width: 500px;
+    margin: 0 auto; /* Centra todo el formulario en el panel */
+    padding-bottom: 40px;
+}
+
+#form-compra h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ajuste para que los botones de pago también estén centrados */
+.opciones-pago {
+    align-items: center;
+}
+
+.radio-pago {
+    width: 90%;
+    max-width: 400px;
+}
+/* Contenedor de la lista */
+#lista-carrito {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    border-bottom: 2px dashed #eee; /* Efecto de ticket cortado */
+    padding-bottom: 15px;
+}
+
+/* Cada fila de producto */
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    border-bottom: 1px solid #f5f5f5;
+    transition: background 0.3s;
+}
+
+.item-carrito:hover {
+    background-color: #fafafa;
+}
+
+/* Nombre del producto */
+.item-nombre {
+    font-weight: 500;
+    color: #333;
+    font-size: 15px;
+    position: relative;
+    padding-left: 15px;
+}
+
+/* Pequeño detalle decorativo antes del nombre */
+.item-nombre::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #000;
+}
+
+/* Precio del producto */
+.item-precio {
+    font-family: 'Courier New', Courier, monospace; /* Fuente tipo recibo */
+    font-weight: bold;
+    color: #27ae60;
+}
+.footer-redes {
+    display: flex;
+    gap: 20px; /* Espacio entre cada icono */
+    width: 30px; /* Ajusta el tamaño para que no se vean gigantes como en tu captura */
+    height: auto;
+    filter: invert(1); /* Si tus logos son negros, esto los volverá blancos para el fondo oscuro */
+    transition: transform 0.3s ease;
+    display: flex; /* Activa el alineamiento horizontal */
+    justify-content: space-between; /* Empuja los grupos a los extremos */
+    align-items: center; /* Los centra verticalmente entre sí */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.logo-red {
+    width: 30px; /* Ajusta el tamaño para que no se vean gigantes como en tu captura */
+    height: auto;
+    filter: invert(1); /* Si tus logos son negros, esto los volverá blancos para el fondo oscuro */
+    transition: transform 0.3s ease;
+}
+
+.logo-red:hover {
+    transform: translateY(-5px); /* Efecto de relieve que querías */
+}
+footer{
+    background-color: #000; /* Fondo negro para la separación */
+    color: #fff;            /* Texto blanco para contraste */
+    padding: 40px 20px;     /* Espacio interno arriba y abajo */
+    text-align: center;     /* Centra todo el texto automáticamente */
+    width: 100%;            /* Asegura que ocupe todo el ancho */
+    margin-top: 50px;       /* Separa el footer del contenido de arriba */
+    border-top: 4px solid #333; /* Una línea sutil para más detalle */
+}
+footer p {
+    margin: 10px 0;         /* Espacio entre las líneas de texto */
+    font-size: 14px;
+    letter-spacing: 1px;    /* Estética urbana */
+    opacity: 0.8;           /* Texto ligeramente más suave */
+}
+
+main {
+    max-width: 90vw; /* Usa el 90% del ancho de la ventana */
+    margin: 0 auto;
+}
+@media (max-width: 768px) {
+    /* 1. Ajuste del Menú de Navegación */
+    /* Usamos 'nav ul' para que afecte a tu lista de enlaces directamente */
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        padding: 0;
+        list-style: none; /* Quita los puntos de la lista si los tiene */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Espaciado entre botones en móvil */
+    }
+
+    /* 2. Ajuste del Banner/Logo */
+    header img, .banner-img {
+        width: 80%; /* Un poco más grande para que se lea bien en móvil */
+        max-width: 300px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* 3. Ajuste de los Productos */
+    /* En pantallas muy pequeñas (como un iPhone SE), bajamos el min-width */
+    .grid-producto {
+        display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start; /* Evita que las tarjetas se estiren raro */
+}
+
+    /* 4. Evitar desbordamiento horizontal (Crucial para la nota) */
+    body, html {
+        overflow-x: hidden;
+        width: 100%;
+    }
+}
